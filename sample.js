@@ -2631,6 +2631,30 @@ console.log(rec(5))
 // }
 
 
+
+//proxy object
+// const person = {
+//     name:"afeefa",
+//     age:30
+// }
+
+// const obj = {
+//     get(target,property){
+//         console.log(`accessing ${property}`)
+//         return target[property]
+//     },
+//     set(target,property,value){
+//         console.log(`setting ${property} to value ${value}`)
+//         target[property] = value
+//         return true
+//     }
+// }
+// const proxy = new Proxy(person,obj)
+// proxy.age = 35
+// console.log(proxy.age)
+
+
+
 //proxy object validation for age
 // const person = {
 //   name: "John",
@@ -2657,9 +2681,60 @@ console.log(rec(5))
 // proxyPerson.age = "abc";
 
 
-//second smallest using reduce
-// const arr = [1,2,3,5,6,7,8]
+// const person = {
+//     name:"afeefa",
+//     age:30
+// }
+// const handler = {
+//     set(target,prop,val){
+//         if(prop==="age" && typeof val !== "number"){
+//             console.log("age must be a numebr")
+//             return false
+//         }
+//         console.log(`setting ${prop} to ${val}`)
+//         target[prop] = val
+//         return true
+//     }
+// }
 
+// const proxy = new Proxy(person,handler)
+// proxy.age =34
+// console.log(person)
+
+
+//has and delete traps
+
+// const person = {
+//     name:"afeefa",
+//     age:30
+// }
+// const handler = {
+//     has(target,prop){
+//         if(prop==="age"){
+//             return false
+//         }
+//         return prop in target
+//     },
+//     deleteProperty(target,prop){
+//         if(prop==="age"){
+//             console.log("you cannot delete age")
+//             return false
+//         }
+//         delete target[prop]
+//         return true
+//     }
+// }
+
+// const proxy = new Proxy(person,handler)
+// delete proxy.age
+// console.log("name" in proxy)
+// console.log(proxy)
+
+
+
+//second smallest using reduce
+
+// const arr = [1,2,3,5,6,7,8]
 // const a = arr.reduce((acc,curr)=>{
 //     if(curr%2==0 && curr<acc.smallest){
 //         acc.secondSmallest  = acc.smallest
@@ -2672,3 +2747,26 @@ console.log(rec(5))
 // },{smallest:Infinity,secondSmallest:Infinity})
 
 // console.log(a)
+
+
+
+//debouncing
+// function debounce(func,delay){
+//     let timeoutId
+//     return function(...args){
+//         clearTimeout(timeoutId)
+//         timeoutId = setTimeout(()=>{
+//             func.apply(this,...args)
+//         },delay)
+//     }
+// }
+
+// const onInputChange = debounce(()=>{
+//     console.log("api called")
+// },300)
+
+// {/* <input type="text" id="inputBox" placeholder ="type something..."/> */}
+
+
+// document.getElementById("inputBox").addEventListener("input",onInputChange)
+
