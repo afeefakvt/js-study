@@ -191,19 +191,57 @@
 
 
 //second largest
-// const a = [1,2,3,4,5,6]
+// const arr = [1,2,3,4]
 
-// const output = a.reduce((acc,curr)=>{
+// const a = arr.reduce((acc,curr)=>{
 //     if(curr>acc.largest){
 //         acc.secondLargest = acc.largest
 //         acc.largest = curr
-//     }else if(curr<acc.largest&&curr>acc.secondLargest){
+//     }else if(curr<acc.largest && curr>acc.secondlargest){
 //         acc.secondLargest = curr
 //     }
 //     return acc
-   
-// },{largest:0,secondLargest:0})
-// console.log(output)
+// },{largest:-Infinity,secondLargest:-Infinity})
+
+// console.log(a)
+
+
+//second smallest even using reduce
+
+// const arr = [1,2,3,5,6,7,8]
+// const a = arr.reduce((acc,curr)=>{
+//     if(curr%2==0 && curr<acc.smallest){
+//         acc.secondSmallest  = acc.smallest
+//         acc.smallest = curr
+//     }else if(curr%2==0 && curr>acc.smallest && curr<acc.secondSmallest){
+//         acc.secondSmallest = curr
+//     }
+//     return acc
+    
+// },{smallest:Infinity,secondSmallest:Infinity})
+
+// console.log(a)
+
+// //third Largest
+// const arr = [1,2,3,4,9,0 ]
+
+// let largest = -Infinity
+// let secondLargest = -Infinity
+// let thirdLargest = -Infinity
+
+// for(let i=0;i<arr.length;i++){
+//     if(arr[i]>largest){
+//         thirdLargest = secondLargest
+//         secondLargest = largest
+//         largest = arr[i]
+//     }else if(arr[i]<largest && arr[i]>secondLargest && arr[i]>thirdLargest){
+//         thirdLargest = secondLargest
+//         secondLargest = arr[i]
+//     }else if(arr[i]<largest && arr[i]<secondLargest && arr[i]>thirdLargest){
+//         thirdLargest = arr[i]
+//     }
+// }
+// console.log(largest,secondLargest,thirdLargest)
 
 
 //promise//
@@ -520,8 +558,11 @@
 
 
 // let str="afeefa";
-
 // console.log(str.replace("a","b"));
+
+// let str="afeefa";
+// str=str.replace(/f/g,"l");
+// console.log(str);
 
 
 //push
@@ -570,9 +611,9 @@
 // console.log(a);
 
 
-// let a=[1,2,3,4,5];
-// a.splice(4,1,7);//replace
-// console.log(a);
+  // let a=[1,2,3,4,5];
+  // a.splice(4,1,7);//replace
+  // console.log(a);
 
 // let a=[1,2,3,4,5];
 // a.splice(1,1);//delete
@@ -1246,6 +1287,18 @@
 // console.log(b)
 
 
+//another method
+// const a = [1,2,3,4,5]
+
+// const b = a.reduce((acc,curr)=>{
+//     if(curr%2==0){
+//         acc = acc+curr
+//     }
+//     return acc
+// },0)
+// console.log(b)
+
+
 
 //multiplication of two array
 
@@ -1428,7 +1481,7 @@
 
 
 //sort by alphabetical order
-// let a="hello and the between"
+// let a="hello and the between"  
 // a=a.split(" ").sort().join(" ")
 // console.log(a)
 
@@ -1931,15 +1984,15 @@
 
 
 
-// const ab = [{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]}]
+const ab = [{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]}]
 
-// for(let i=0;i<ab.length;i++){
-//      ab[i].af=ab[i].af.reduce((acc,curr)=>{
-//          acc=acc+curr
-//          return acc
-//      },0)
-// }
-// console.log(ab)
+for(let i=0;i<ab.length;i++){
+     ab[i].af=ab[i].af.reduce((acc,curr)=>{
+         acc=acc+curr
+         return acc
+     },0)
+}
+console.log(ab)
 
 
 
@@ -2427,13 +2480,13 @@
 // rec(5)
 
 
-function rec(n){
-    if(n<1){
-        return n 
-    }
-    return n+rec(n-1)
-}
-console.log(rec(5))
+// function rec(n){
+//     if(n<1){
+//         return n 
+//     }
+//     return n+rec(n-1)
+// }
+// console.log(rec(5))
 
 
 // function rec(str,left=0,right=str.length-1){
@@ -2731,25 +2784,6 @@ console.log(rec(5))
 // console.log(proxy)
 
 
-
-//second smallest using reduce
-
-// const arr = [1,2,3,5,6,7,8]
-// const a = arr.reduce((acc,curr)=>{
-//     if(curr%2==0 && curr<acc.smallest){
-//         acc.secondSmallest  = acc.smallest
-//         acc.smallest = curr
-//     }else if(curr%2==0 && curr>acc.smallest && curr<acc.secondSmallest){
-//         acc.secondSmallest = curr
-//     }
-//     return acc
-    
-// },{smallest:Infinity,secondSmallest:Infinity})
-
-// console.log(a)
-
-
-
 //debouncing
 // function debounce(func,delay){
 //     let timeoutId
@@ -2770,3 +2804,21 @@ console.log(rec(5))
 
 // document.getElementById("inputBox").addEventListener("input",onInputChange)
 
+
+
+//throttling
+// function throttle(func,limit){
+//     let lastCall=0
+//     return function(...args){
+//         let now = Date.now()
+//         if(now-lastCall>=limit){
+//             lastCall = now
+//             func.apply(this,args)
+//         }
+//     }
+// }
+// const onScroll = throttle(()=>{
+//     console.log("scrolled")
+// },200)
+
+// window.addEventListener("scroll",onScroll)
