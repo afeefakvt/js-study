@@ -1962,12 +1962,6 @@
 // let z="12"-3
 // console.log(z)
 
-
-// const a=[1,2,3]
-// return a.push(4)
-// console.log(a)
-
-
 // const a=[1,2,2,3,4,5]
 // const b=a.filter((num1,num2)=>{
 //     if(a[num1]!=a[num2]){
@@ -1977,22 +1971,15 @@
 // console.log(b)
 
 
+// const ab = [{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]}]
 
-// var name = 'razik'
-// console.log(name)
-
-
-
-
-const ab = [{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]},{af:[4,34,343]}]
-
-for(let i=0;i<ab.length;i++){
-     ab[i].af=ab[i].af.reduce((acc,curr)=>{
-         acc=acc+curr
-         return acc
-     },0)
-}
-console.log(ab)
+// for(let i=0;i<ab.length;i++){
+//      ab[i].af=ab[i].af.reduce((acc,curr)=>{
+//          acc=acc+curr
+//          return acc
+//      },0)
+// }
+// console.log(ab)
 
 
 
@@ -2079,7 +2066,6 @@ console.log(ab)
     
 
 
-
 // let arr=[[{a:[1,1,1]}],[{b:[1,1,1]}],[{c:[1,1,1]}]]
 
 
@@ -2095,7 +2081,6 @@ console.log(ab)
 //     }
 // }
 // console.log(sum)
-
 
 
 
@@ -2126,7 +2111,7 @@ console.log(ab)
 
 
 //find second least occurence with hashmap
-// let arr=[1,1,1,3,3,,3,3,3,3,3,4,4,1,1,1,2,2]
+// 
 
 // let obj = {}
 
@@ -2469,7 +2454,13 @@ console.log(ab)
 // }
 // rec(5)
 
+// function rec(n){
+//     if(n===0) return
+//      rec(n-1)
+//     console.log(n)
 
+// }
+// rec(5)
 
 
 // function rec(n,i=1){
@@ -2499,6 +2490,12 @@ console.log(ab)
 // }
 // console.log(rec('madama'))
 
+
+// function rec(num){
+//     if(num==0)return 0
+//     return num%10+rec(Math.floor(num/10))
+// }
+// console.log(rec(123))
 
 
 // function fib(a,b,limit){
@@ -2614,7 +2611,7 @@ console.log(ab)
 
 
 //toi
-
+//function borrwing
 // const person = {
 //     name:"afeefa",
 //     func:function(){
@@ -2628,8 +2625,65 @@ console.log(ab)
 //     }
 // }
 
-// const greetPerson = obj.bind(person)
-// greetPerson("Alice")
+// const greetPerson = obj.fun.bind(person)
+// greetPerson()
+
+// const obj1 = {
+//     name:"afef",
+//     func:function(){
+//         console.log("hello")
+//     }
+// }
+// const obj2 = {
+//     fun:function(){
+//         this.func()
+//     }
+// }
+//  obj2.fun.apply(obj1)
+
+// const obj1 ={
+//     first:"afeefa",
+//     last:"kvt",
+//     getfull:function(){
+//         console.log(`${this.first}${this.last}`)
+//     }
+// }
+// const obj2 ={
+//     first:"bob",
+//     last:"smoith"
+// }
+// obj1.getfull.call(obj2)
+
+// const obj1 ={
+//     first:"afeefa",
+//     last:"kvt",
+//     getfull:function(){
+//         console.log(`${this.first}${this.last}`)
+//     }
+// }
+// const obj2 ={
+//     first:"bob",
+//     last:"smoith"
+// }
+
+// const b =obj1.getfull.bind(obj2)
+// b()
+
+// const obj1 ={
+//     first:"afeefa",
+//     last:"kvt",
+//     getfull:function(){
+//         console.log(`${this.first}${this.last}`)
+//     }
+// }
+// const obj2 ={
+//     first:"bob",
+//     last:"smoith"
+// }
+
+// const b =obj1.getfull.bind(obj2)
+// b()
+
 
 // function p(){
 //   return new Promise((resolve,reject)=>{
@@ -2790,7 +2844,7 @@ console.log(ab)
 //     return function(...args){
 //         clearTimeout(timeoutId)
 //         timeoutId = setTimeout(()=>{
-//             func.apply(this,...args)
+//             func.apply(this,args)
 //         },delay)
 //     }
 // }
@@ -2822,3 +2876,94 @@ console.log(ab)
 // },200)
 
 // window.addEventListener("scroll",onScroll)
+
+
+//weak set
+// const ws = new WeakSet()
+
+// const obj1 = {
+//     a:1
+// }
+// const obj2 = {
+//     b:2
+// }
+// ws.add(obj1)
+// ws.add(obj2)
+// ws.delete(obj1)
+// console.log(ws.has(obj1))
+
+
+//weak map
+// const privateData = new WeakMap()
+
+// class Person{
+//     constructor(name,age){
+//         privateData.set(this,{name,age})
+//     }
+//     getName(){
+//         return privateData.get(this).name
+//     }
+//     getAge(){
+//         return privateData.get(this).age
+//     }
+// }
+// const person = new Person("Afeefa",25)
+// console.log(person.getName())
+// console.log(person.getAge())
+// console.log(person.name)
+
+
+
+
+
+//toi
+// const ab = [[123, 23, 12], [5, 23, 4, 12], [123, 4, 123, 41, 2]]
+
+//Find the row with the maximum sum in the given 2D array and return the entire row along with its index. If there are multiple rows with the same maximum sum, return all such rows along with their indices
+
+// let arr=[]
+// let arr1=[]
+// let sum=0
+// for(let i=0;i<ab.length;i++){
+//     sum=0
+//     for(let j=0;j<ab[i].length;j++){
+//         sum=sum+ab[i][j]
+//     }
+//     arr.push([i,sum,ab[i]])
+// }
+// console.log(arr)
+// for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr[i].length;j++){
+//         arr1.push(arr[i][1])
+//         break;
+//     }
+// }
+// console.log(arr1)
+// let maxSum = Math.max(...arr1)
+
+// for(let i=0;i<arr.length;i++){
+//     for(let j=0;j<arr[i].length;j++){
+//         if(arr[i][1]==maxSum){
+//             console.log(arr[i][0],arr[i][2])
+//         }
+//         break
+//     }
+// }
+
+
+
+
+const ab = [[123, 23, 12], [5, 23, 4, 12], [123, 4, 123, 41, 2]];
+
+// [
+//   { row: [123, 23, 12], index: 0 },
+//   { row: [5, 23, 4, 12], index: 1 },
+//   { row: [123, 4, 123, 41, 2], index: 2 }
+// ]
+
+let arr = []
+for(let i=0;i<ab.length;i++){
+    arr.push({row:ab[i],index:i})
+}
+console.log(arr)
+
